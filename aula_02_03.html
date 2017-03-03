@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>Compara "Nuemro"</title>
+        <script>
+            var vetor=new Array();
+            function addNumero(){
+                var n=parseInt(document.getElementById("num").value);
+                var saida = document.getElementById("mostratela");
+                if(isNaN(n)){
+
+                }else{
+                    vetor.push(n);
+                    if(saida.innerText==""){
+                        saida.innerText=n; 
+                    }else{
+                        saida.innerText+=", "+n;
+                    }
+                }
+            }
+            function limpa(){
+                document.getElementById("num").value=null;
+            }
+            function compara(){
+                var maior=document.getElementById("maior");
+                var maiorElement = vetor[0];
+                for(var i=1;i<vetor.length;i++){
+                    if(vetor[i]>maiorElement){
+                        maiorElement = vetor[i];
+                    }
+                }
+                if(isNaN(maiorElement)){
+                    maior.innerText="Sem numeros para comparar";
+                }else{
+                    maior.innerText="O maior numero é: "+maiorElement;
+                }
+                
+            }
+        </script>
+    </head>
+    <body>
+        <input type ="number" id = "num" value="" placeholder="numero"></input></br>
+        <input type="button" id="botao" value="Adicionar numero" onclick="addNumero()"/>
+        <input type="button" id="limpa" value="Limpar" onclick="limpa()"/></br>
+        <input type="button" id="compara" value="Maior!" onclick="compara()"></input></br>
+        
+        <label id="mostratela"></label></br>
+        <label id="maior"></label>
+        <br/>
+    </body>
+</html>

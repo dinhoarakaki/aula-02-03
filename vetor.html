@@ -1,0 +1,114 @@
+<html>
+    <head>
+        <title>vetor "nuemro"</title>
+
+        <style>
+                body{
+                    background-size: cover;
+                    width:100%; 
+                    height:100%;
+                    position: absolute;
+                    background-repeat: no-repeat;
+                }
+                label{
+                    color:red;
+                    box-shadow: 10px;
+                    border-color: white;
+                }
+        </style>
+
+        <script>
+            function decideMaior(){
+                
+                var elem = new Array (             
+                    parseInt(document.getElementById("num1").value),
+                    parseInt(document.getElementById("num2").value),
+                    parseInt(document.getElementById("num3").value),
+                    parseInt(document.getElementById("num4").value),
+                    parseInt(document.getElementById("num5").value),
+                    parseInt(document.getElementById("num6").value),
+                    parseInt(document.getElementById("num7").value),
+                    parseInt(document.getElementById("num8").value),
+                    parseInt(document.getElementById("num9").value),
+                    parseInt(document.getElementById("num10").value)
+                );
+                var maiorElement = elem[0];
+                
+                for(var i=1;i<elem.length;i++){
+                    if(elem[i]>maiorElement || isNaN(maiorElement)){
+                        maiorElement = elem[i];
+                    }
+                }
+
+                var resp = document.getElementById("resposta"); 
+
+                if (isNaN(maiorElement)){
+                    resp.innerHTML = "Nenhum numero para comparar";
+                    document.getElementById("corpo").background="https://i.makeagif.com/media/9-10-2015/OuZ-tl.gif";
+                }else{
+                    resp.innerHTML = "O maior número é: "+maiorElement;
+                    document.getElementById("corpo").background="http://img.timeinc.net/time/daily/2007/0701/360_borat_lebanon0109.jpg";    
+                }
+            }
+
+            function limpa(){
+                document.getElementById("num1").value=null; //zera tudo
+                document.getElementById("num2").value=null;
+                document.getElementById("num3").value=null;
+                document.getElementById("num4").value=null;
+                document.getElementById("num5").value=null;
+                document.getElementById("num6").value=null;
+                document.getElementById("num7").value=null;
+                document.getElementById("num8").value=null;
+                document.getElementById("num9").value=null;
+                document.getElementById("num10").value=null;
+                document.getElementById("corpo").background="null";
+                var resp = document.getElementById("resposta");
+                resp.innerHTML = "";
+            }
+        </script>
+    </head>
+
+    <body id="corpo">
+        <label id="label"><b><u> Digite 10 Numeros:</u></b></label>
+        <br/>
+        <br/>
+
+        <input type = "number" id = "num1" value="" placeholder="numero 01"></input>
+        <br/>
+        
+        <input type = "number" id = "num2" value="" placeholder="numero 02"></input>
+        <br/>
+        
+        <input type = "number" id = "num3" value="" placeholder="numero 03"></input>
+        <br/>
+        
+        <input type = "number" id = "num4" value="" placeholder="numero 04"></input>
+        <br/>
+        
+        <input type = "number" id = "num5" value="" placeholder="numero 05"></input>
+        <br/>
+        
+        <input type = "number" id = "num6" value="" placeholder="numero 06"></input>
+        <br/>
+        
+        <input type = "number" id = "num7" value="" placeholder="numero 07"></input>
+        <br/>
+        
+        <input type = "number" id = "num8" value="" placeholder="numero 08"></input>
+        <br/>
+        
+        <input type = "number" id = "num9" value="" placeholder="numero 09"></input>
+        <br/>
+        
+        <input type = "number" id = "num10" value="" placeholder="numero 10"></input>
+        <br/>
+        <br/>
+        
+        <input type="button" id="botao" value="Decide Maior" onclick="decideMaior()"></input>
+        <input type="button" id="botaolimpa" value="Limpar" onclick="limpa()"></input>
+        <label id="resposta" ><b><u></u></b></label>
+       
+    </body>
+    
+</html>
